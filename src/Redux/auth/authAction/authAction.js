@@ -3,6 +3,7 @@ import {
   firebaseAuth,
   firestore,
   serverTimeStamp,
+  googleAuthProvider,
 } from "./../../../Firebase/Firebase";
 
 export var setUser = (user) => async (dispatch) => {
@@ -16,10 +17,10 @@ export var setUser = (user) => async (dispatch) => {
   } catch (error) {}
 };
 export var removeUser = () => ({
-  type: REMOVE_USER
-})
+  type: REMOVE_USER,
+});
 
-export var signup = ({ fullName, email, password }) => async (dispatch) => {
+export var signup = ({ fullName, email, password }) => async () => {
   try {
     // create user on firebase auth section
     var {
@@ -28,54 +29,90 @@ export var signup = ({ fullName, email, password }) => async (dispatch) => {
     var userInfo = {
       fullName,
       email,
-      password,
       createdAt: serverTimeStamp(),
     };
     //set user data to firestore
-    var userData = await firestore.collection("users").doc(uid).set(userInfo);
-
-    //setting up state
-    var userDataForState = {
-      fullName,
-      email,
-      uid,
-    };
-    dispatch(setUser(userDataForState));
-    console.log("done");
+    await firestore.collection("users").doc(uid).set(userInfo);
   } catch (error) {
     console.log(error);
   }
 };
 
-export var signIn = ({ email, password }) => async (dispatch) => {
+export var signIn = ({ email, password }) => async () => {
   try {
     // console.log(cred)
-    var {
-      user: { uid },
-    } = await firebaseAuth.signInWithEmailAndPassword(email, password);
-    //fetch user data from firestore
-    var userData = await firestore.collection("users").doc(uid).get();
-    // console.log(userData.data())
-    var { fullName, email: userEmail } = userData.data();
-    //set user data in auth state
-    var userDataForState = {
-      fullName,
-      userEmail,
-      uid,
-    };
-    dispatch(setUser(userDataForState));
+    await firebaseAuth.signInWithEmailAndPassword(email, password);
   } catch (error) {
     console.log(error);
   }
 };
 
-export var signOut = () => async (dispatch) =>{
+export var signOut = () => async () => {
   try {
     // signout user from firebase auth
-      await firebaseAuth.signOut()
-      dispatch(removeUser())
-      console.log("user Sign Out")
+    await firebaseAuth.signOut();
   } catch (error) {
-    console.log(error)
+    console.log(error);
   }
-}
+};
+
+export var googleSignIn = () => async () => {
+  try {
+    googleAuthProvider.setCustomParameters({
+      prompt: "select_account",
+    });
+    var {
+      user: { displayName, email, uid },
+      additionalUserInfo: { isNewUser },
+    } = await firebaseAuth.signInWithPopup(googleAuthProvider);
+    if (isNewUser) {
+      // if new user then add document in firestore
+      var userInfo = {
+        fullName: displayName,
+        email,
+        createdAt: serverTimeStamp(),
+      };
+      // else
+      //set user data to firestore
+      await firestore.collection("users").doc(uid).set(userInfo);
+    }
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+// this function works as a centralized auth manager for our app
+export var firebaseAuthListener = () => async (dispatch) => {
+  try {
+    // firebase auth listener
+    firebaseAuth.onAuthStateChanged(async (user) => {
+      if (user) {
+        // User is signed in.
+        var { uid } = user;
+        // console.log(uid)
+        //fetch user data from firestore
+        var query = await firestore.collection("users").doc(uid).get();
+        var { fullName, email } = query.data();
+        var userDataForState = {
+          fullName,
+          userEmail: email,
+          uid,
+        };
+        dispatch(setUser(userDataForState));
+      } else {
+        // No user is signed in.
+        //set state to null
+        dispatch(removeUser());
+      }
+    });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+/* onAuthStateChanged triggers when 
+Right after the listener has been registered
+When a user is signed in
+When the current user is signed out
+When the current user changes
+*/
