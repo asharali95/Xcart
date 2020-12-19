@@ -1,6 +1,7 @@
 import firebase from "firebase/app";
 import "firebase/auth";
 import "firebase/firestore";
+import "firebase/storage";
 
 // Your web app's Firebase configuration
 var firebaseConfig = {
@@ -16,6 +17,7 @@ firebase.initializeApp(firebaseConfig);
 export var firebaseAuth = firebase.auth();
 export var firestore = firebase.firestore();
 export var googleAuthProvider = new firebase.auth.GoogleAuthProvider();
+export var firestoreStorage = firebase.storage().ref()
 export var serverTimeStamp = () =>
   firebase.firestore.FieldValue.serverTimestamp();
 export default firebase;
