@@ -1,13 +1,17 @@
 import { firestore, firestoreStorage } from "../../Firebase/Firebase";
 import { v4 as uuid } from "uuid";
-import { serverTimeStamp } from './../../Firebase/Firebase';
+import { serverTimeStamp } from "./../../Firebase/Firebase";
+import { SET_PRODUCTS } from "./productConstants";
+import { categorizedProduct } from "../../Utility/Utility-Products/Utility-Products";
+
+// ADMIN SIDE STUFF
+
 export var uploadProduct = (productObj) => async () => {
   try {
-    
-        // steps:
-        // 1. send file to storage and get download URL
-        // 2. Modify productObj with coverPhoto url and createdAt
-        // 3. Create doc in firestore
+    // steps:
+    // 1. send file to storage and get download URL
+    // 2. Modify productObj with coverPhoto url and createdAt
+    // 3. Create doc in firestore
 
     var imageRef = firestoreStorage.child(`products/img-${uuid()}`);
     var fileListener = imageRef.put(productObj.coverPhoto);
@@ -24,14 +28,32 @@ export var uploadProduct = (productObj) => async () => {
       (error) => console.log(error),
       async () => {
         var downloadURL = await imageRef.getDownloadURL();
-        productObj.coverPhoto = downloadURL
-        productObj.createdAt = serverTimeStamp()
-        productObj.cost = parseFloat(productObj.cost)
-        productObj.quantity = parseInt(productObj.quantity)
-        await firestore.collection("products").add(productObj)
+        productObj.coverPhoto = downloadURL;
+        productObj.createdAt = serverTimeStamp();
+        productObj.cost = parseFloat(productObj.cost);
+        productObj.quantity = parseInt(productObj.quantity);
+        await firestore.collection("products").add(productObj);
       }
     );
-    
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export var fetchProducts = () => async (dispatch) => {
+  try {
+    var query = await firestore.collection("products").get();
+    var products = [];
+    query.docs.forEach((doc) => {
+      products.push(doc.data());
+    });
+    // console.log(categorizedProduct(products));
+    dispatch({
+      type: SET_PRODUCTS,
+      payload: {
+        products, // array
+      },
+    });
   } catch (error) {
     console.log(error);
   }
