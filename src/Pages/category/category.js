@@ -1,26 +1,23 @@
-import { React, useEffect } from "react";
-import { fetchProducts } from "../../Redux/product/productActions";
-import { connect } from "react-redux";
-import { categorizedProduct } from "../../Utility/Utility-Products/Utility-Products";
+import React,{useEffect} from "react";
+import CategoryList from "./../../Components/CategoryList/CategoryList";
+import { connect } from 'react-redux';
+import { clearProducts } from './../../Redux/product/productActions';
 
-const Category = ({ fetchProducts, categories }) => {
-  console.log(categories);
-  useEffect(() => {
-    //CDM
-    fetchProducts();
-    // console.log("CDM")
-  }, []);
+const Category = ({clearProducts}) => {
+  useEffect(()=>{
+    return()=>{
+      //CWU
+      clearProducts();
+    }
+  })
   return (
     <div>
-      <h1>category Page</h1>
+      <CategoryList/>
     </div>
   );
 };
-var mapState = (state) => ({
-  categories: categorizedProduct(state.products),
-});
 
 var actions = {
-  fetchProducts,
-};
-export default connect(mapState, actions)(Category);
+  clearProducts,
+}
+export default connect(null, actions)(Category);
