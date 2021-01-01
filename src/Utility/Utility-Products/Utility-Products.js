@@ -74,3 +74,11 @@ export var productRemovalFromCart = (existingProducts, upcomingProductId) => {
     console.log(error)
   }
 };
+
+export var AllProductsDeletionFromCart = (existingProducts,productId) =>{
+  try {
+    return existingProducts.filter((existingProduct) => existingProduct.id !== productId)
+  } catch (error) {
+    console.log(error)
+  }
+}

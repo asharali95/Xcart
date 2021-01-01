@@ -1,27 +1,44 @@
-import { ADD_PRODUCT_TO_CART, REMOVE_ITEM_FROM_CART } from "./../cartConstants/cartConstants";
+import {
+  ADD_PRODUCT_TO_CART,
+  REMOVE_PRODUCT_FROM_CART,
+  DELETE_ALL_PRODUCTS_FROM_CART,
+} from "./../cartConstants/cartConstants";
 
 export var addProductToCart = (product) => async (dispatch) => {
   try {
-    dispatch ({
+    dispatch({
       type: ADD_PRODUCT_TO_CART,
       payload: {
         product,
       },
-    })
+    });
   } catch (error) {
     console.log(error);
   }
 };
 
-export var removeItemFromCart = (productId) => async(dispatch) =>{
+export var removeItemFromCart = (productId) => async (dispatch) => {
   try {
     dispatch({
-      type: REMOVE_ITEM_FROM_CART,
-      payload :{
-        productId
-      }
-    })
+      type: REMOVE_PRODUCT_FROM_CART,
+      payload: {
+        productId,
+      },
+    });
   } catch (error) {
-    console.log(error)
+    console.log(error);
   }
-}
+};
+
+export var deleteAllProductsFromCart = (productId) => async (dispatch) => {
+  try {
+    dispatch({
+      type: DELETE_ALL_PRODUCTS_FROM_CART,
+      payload: {
+        productId
+      },
+    });
+  } catch (error) {
+    console.log(error);
+  }
+};
