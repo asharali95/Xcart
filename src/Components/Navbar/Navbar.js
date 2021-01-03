@@ -8,6 +8,7 @@ const Navbar = () => {
           <div className="nav-item-container">
           <div className="navitem"><Link to="/categories"><h2>Categories</h2></Link></div>
           <div className="navitem"><Link to="/authentication"><h2>Auth</h2></Link></div>
+          <div className="navitem"><Link to="/test"><h2>Test</h2></Link></div>
         </div>
     </div>
     )
