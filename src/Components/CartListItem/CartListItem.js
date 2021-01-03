@@ -8,7 +8,7 @@ const CartListItem = ({addProductToCart,removeItemFromCart,deleteAllProductsFrom
         <div>
             <br/>
             <h2>{title} - {cost}   <button onClick={() => deleteAllProductsFromCart(id)}> X </button></h2>
-            <h3> <button onClick={()=> addProductToCart(product)}> + </button>  {quantity}  <button onClick={() => removeItemFromCart(id)}> - </button> </h3>
+            <h3> <button onClick={() => removeItemFromCart(id)}> - </button>  {quantity}  <button onClick={()=> addProductToCart(product)}> + </button> </h3>
         </div>
     )
 }
