@@ -2,6 +2,7 @@ import React from 'react'
 import CheckoutList from './../../Components/CheckoutList/CheckoutList';
 import { calculateTotalCost } from './../../Utility/Utility-Products/Utility-checkout';
 import { connect } from 'react-redux';
+import OrderForm from './../../Components/OrderForm/OrderForm';
 
 const checkout = ({total}) => {
     return (
@@ -9,8 +10,9 @@ const checkout = ({total}) => {
             <h1>checkout Page</h1>
             <CheckoutList/>
             <br/>
-            <h2>Total Cost : {total}</h2> <br/>
-            <button>PAY NOW</button>
+            <h2>Total Cost : {total}</h2>
+            <OrderForm/> <br/>
+            <button>Proceed and Pay</button>
         </div>
     )
 }
