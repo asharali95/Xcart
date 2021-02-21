@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
-import { uploadProduct } from "./../../Redux/product/productActions";
-import Cart from './../../Components/Cart/Cart';
+import { uploadProduct } from "../../Redux/product/productActions";
+import Cart from '../../Components/Cart/Cart';
+import Header from '../../Components/Header/Header';
+import Paragraph from './../../Components/Paragraph/Paragraph';
+import Button from './../../Components/Button/Button';
 
 const Test = ({ uploadProduct }) => {
   var [category, setCategory] = useState("");
@@ -24,7 +27,7 @@ const Test = ({ uploadProduct }) => {
     uploadProduct(productObj);
   };
   return (
-    <div>
+    <div style={{fontSize:"62.5%"}}>
         {/* <h1>Test</h1>
       <form onSubmit={handleSubmit}>
         <input
@@ -69,6 +72,8 @@ const Test = ({ uploadProduct }) => {
       </form> */}
 
       <Cart/>
+      <Paragraph fontSize={32} fontWeight="regular">this is paragraph component</Paragraph>
+      <Button fontSize={16} background="orange" fontWeight="regular">click me</Button>
     </div>
   );
 };

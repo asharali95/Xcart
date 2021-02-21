@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux';
-import { addProductToCart, removeItemFromCart, deleteAllProductsFromCart } from './../../Redux/cart/cartActions/cartActions';
+import { addProductToCart, removeItemFromCart, deleteAllProductsFromCart } from '../../Redux/cart/cartActions/cartActions';
 
 const CartListItem = ({addProductToCart,removeItemFromCart,deleteAllProductsFromCart,...product}) => {
     var {title="title",cost=50,quantity="0",id} = product;

@@ -1,0 +1,9 @@
+.button{
+    padding: 20px 40px;
+    cursor: pointer;
+    outline: none;
+    border-radius: 5px;
+}
+.button:hover{
+    transform: translateY(-5px);
+}

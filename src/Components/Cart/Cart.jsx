@@ -1,7 +1,7 @@
 import React from "react";
-import CartList from "./../CartList/CartList";
+import CartList from "../CartList/CartList";
 import { connect } from "react-redux";
-import { generateOrder } from "./../../Redux/order/orderActions";
+import { generateOrder } from "../../Redux/order/orderActions";
 
 const Cart = ({ generateOrder, cart }) => {
   return (

@@ -4,7 +4,7 @@ import {
   firestore,
   serverTimeStamp,
   googleAuthProvider,
-} from "./../../../Firebase/Firebase";
+} from "../../../Firebase/Firebase";
 
 export var setUser = (user) => async (dispatch) => {
   try {

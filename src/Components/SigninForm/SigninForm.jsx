@@ -1,41 +1,30 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
-import { signup } from "./../../Redux/auth/authAction/authAction";
+import { signIn } from "../../Redux/auth/authAction/authAction";
 
-const SignupForm = ({ signup }) => {
-  var [fullName, setFullName] = useState("");
+const SigninForm = ({ signIn }) => {
   var [email, setemail] = useState("");
   var [password, setPassword] = useState("");
   var handleFormSubmit = (e) => {
     e.preventDefault();
     var cred = {
-      fullName,
       email,
       password,
     };
-    signup(cred);
+    signIn(cred);
   };
   return (
     <div>
       <form onSubmit={handleFormSubmit}>
         <input
-          onChange={(e) => setFullName(e.target.value)}
-          value={fullName}
-          name="fullname"
-          type="text"
-          placeholder="full name"
-        />
-        <input
           onChange={(e) => setemail(e.target.value)}
           value={email}
-          name="email"
           type="text"
           placeholder="email"
         />
         <input
           onChange={(e) => setPassword(e.target.value)}
           value={password}
-          name="password"
           type="text"
           placeholder="password"
         />
@@ -44,7 +33,8 @@ const SignupForm = ({ signup }) => {
     </div>
   );
 };
+
 var actions = {
-  signup,
+  signIn,
 };
-export default connect(null, actions)(SignupForm);
+export default connect(null, actions)(SigninForm);

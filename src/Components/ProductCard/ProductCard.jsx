@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import { addProductToCart } from "./../../Redux/cart/cartActions/cartActions";
+import { addProductToCart } from "../../Redux/cart/cartActions/cartActions";
 
 const ProductCard = ({addProductToCart,...product}) => {
     var {title, cost,id} = product;
