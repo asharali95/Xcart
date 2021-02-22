@@ -1,0 +1,7 @@
+.category-product{
+    font-size: 62.5%;
+    display: grid;
+    grid-template-columns: 80vw;
+    justify-content: center;
+    padding-top: 15em;
+}

@@ -3,7 +3,7 @@ import CategoryListItem from "../CategoryListItem/CategoryListItem";
 import { connect } from "react-redux";
 import { categorizedProduct } from "../../Utility/Utility-Products/Utility-Products";
 import { fetchProducts } from "../../Redux/product/productActions";
-
+import "./CategoryList.css"
 const CategoryList = ({ fetchProducts, categories }) => {
 //   console.log(categories);
   useEffect(() => {
@@ -12,8 +12,8 @@ const CategoryList = ({ fetchProducts, categories }) => {
     // console.log("CDM")
   }, []);
   return (
-    <div>
-      <h1>category list</h1>
+    <div className="category_list">
+      {/* <h1>category list</h1> */}
       {categories.map((category) => <CategoryListItem key={category.category} {...category} />)}
     </div>
   );
