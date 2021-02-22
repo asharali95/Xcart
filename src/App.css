@@ -2,6 +2,7 @@
   padding: 0;
   margin: 0;
   border: 0;
+  box-sizing: border-box;
 }
 a {
   text-decoration: none;
@@ -10,4 +11,16 @@ a {
 :root{
   --font-family-header: 'Roboto', sans-serif;
   --font-family-para: 'Open Sans', sans-serif;
+  --navbar-height: 70px;
+}
+.pagesContainer{
+  padding-top:  var(--navbar-height);
+}
+.flex{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
 }

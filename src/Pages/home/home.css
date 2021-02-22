@@ -1,0 +1,11 @@
+.home{
+    display: grid;
+    grid-template-rows: minmax(calc(100vh - var(--navbar-height)),min-content);
+    grid-template-columns: repeat(2,1fr);
+}
+.homeLeft{
+    background-color: palegreen;
+}
+.homeRight{
+    background-color: palevioletred;
+}

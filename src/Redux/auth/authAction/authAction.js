@@ -1,4 +1,5 @@
 import { REMOVE_USER, SET_USER } from "./../authConstants/authConstants";
+import history from './../../../history/history';
 import {
   firebaseAuth,
   firestore,
@@ -33,6 +34,8 @@ export var signup = ({ fullName, email, password }) => async () => {
     };
     //set user data to firestore
     await firestore.collection("users").doc(uid).set(userInfo);
+    //navigate to home page
+    history.push("/")
   } catch (error) {
     console.log(error);
   }
@@ -42,6 +45,8 @@ export var signIn = ({ email, password }) => async () => {
   try {
     // console.log(cred)
     await firebaseAuth.signInWithEmailAndPassword(email, password);
+    //navigate to home page
+    history.push("/")
   } catch (error) {
     console.log(error);
   }
@@ -75,7 +80,11 @@ export var googleSignIn = () => async () => {
       // else
       //set user data to firestore
       await firestore.collection("users").doc(uid).set(userInfo);
+
+      //navigate to home page
+      history.push("/")
     }
+    history.push("/")
   } catch (error) {
     console.log(error);
   }
