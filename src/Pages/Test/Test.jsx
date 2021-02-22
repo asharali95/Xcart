@@ -5,6 +5,7 @@ import Cart from '../../Components/Cart/Cart';
 import Header from '../../Components/Header/Header';
 import Paragraph from './../../Components/Paragraph/Paragraph';
 import Button from './../../Components/Button/Button';
+import ProductCard from './../../Components/ProductCard/ProductCard';
 
 const Test = ({ uploadProduct }) => {
   var [category, setCategory] = useState("");
@@ -72,8 +73,9 @@ const Test = ({ uploadProduct }) => {
       </form> */}
 
       <Cart/>
-      <Paragraph fontSize={32} fontWeight="regular">this is paragraph component</Paragraph>
-      <Button fontSize={16} background="orange" fontWeight="regular">click me</Button>
+      {/* <Paragraph fontSize={32} fontWeight="regular">this is paragraph component</Paragraph>
+      <Button fontSize={16} background="orange" fontWeight="regular">click me</Button> */}
+      <ProductCard/>
     </div>
   );
 };
