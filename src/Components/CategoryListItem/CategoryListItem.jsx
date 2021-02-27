@@ -6,7 +6,7 @@ import Header from './../Header/Header';
 const CategoryListItem = ({category,products}) => {
     return (
         <div className="category_list_item">
-            <div className="category_text"><Link to={`/category-products/${category}`}><Header fontSize={120} fontWeight="bold">{category}</Header></Link></div>
+            <h1 className="category_text"><Link to={`/category-products/${category}`}>{category}</Link></h1>
             {products.map((product) =><ProductCard key={product.title} {...product} />)}
             
         </div>
