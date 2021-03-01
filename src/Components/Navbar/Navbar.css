@@ -1,9 +1,9 @@
 .navbar {
   width: 100vw;
   height: var(--navbar-height);
-  background-color: lightblue;
+  background-color: rgb(131, 131, 243);
   display: grid;
-  grid-template-columns: 1fr repeat(3, min-content);
+  grid-template-columns: 1fr repeat(4, min-content);
   padding: 0px 80px;
   outline: none;
   align-content: center;

@@ -2,17 +2,16 @@ import React from "react";
 import CartList from "../CartList/CartList";
 import { connect } from "react-redux";
 import { generateOrder } from "../../Redux/order/orderActions";
-
+import "./Cart.css"
+import Header from './../Header/Header';
+import Button from './../Button/Button';
 const Cart = ({ generateOrder, cart }) => {
   return (
-    <div>
-      <h1>Cart Page</h1>
-      <CartList />
-      {cart.length === 0 ? (
-        <h3>Sorry you can't proceed. You don't add anything in cart yet</h3>
-      ) : (
-        <button onClick={generateOrder}>CHECKOUT</button>
-      )}
+    <div className="cart">
+      <Header fontSize={24} fontWeight="bold" style={{letterSpacing: "5px",color:"white"}}>Cart</Header>
+      <CartList/>
+      {/* <button onClick={generateOrder}>CHECKOUT</button> */}
+      <Button fontSize={24} background="rgba(0,0,0,0.6)" style={{letterSpacing: "5px", width:"100%"}}>CHECKOUT</Button>
     </div>
   );
 };

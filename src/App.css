@@ -13,6 +13,9 @@ a {
   --font-family-para: 'Open Sans', sans-serif;
   --navbar-height: 70px;
 }
+button{
+  font-size: inherit;
+}
 .pagesContainer{
   padding-top:  var(--navbar-height);
 }

@@ -75,7 +75,6 @@ const Test = ({ uploadProduct }) => {
       <Cart/>
       {/* <Paragraph fontSize={32} fontWeight="regular">this is paragraph component</Paragraph>
       <Button fontSize={16} background="orange" fontWeight="regular">click me</Button> */}
-      <ProductCard/>
     </div>
   );
 };
