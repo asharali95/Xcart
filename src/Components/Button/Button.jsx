@@ -8,12 +8,14 @@ const Button = ({
   color = "white",
   fontWeight,
   fontSize=12,
+  disabled=false,
   ...restProps
 }) => {
   return (
     <button
+      disabled={disabled}
       className="button"
-      style={{ background, color, ...style }}
+      style={{ background: disabled ? "lightgrey": background, color, ...style }}
       {...restProps}
     >
       <Paragraph color fontSize={fontSize} fontWeight={fontWeight}>

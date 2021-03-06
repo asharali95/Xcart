@@ -22,10 +22,11 @@ const CartListItem = ({
         <div className="cartItemDescription">
             <Paragraph fontSize={15} fontWeight="semi-bold">{title}</Paragraph>
             <div style={{display:"flex", alignItems:"center"}}>
-                <Paragraph fontSize={15}fontWeight="regular">${cost*quantity}</Paragraph>
-                <div className="abc flex" style={{flexFlow:"row",justifyContent:"end", marginRight:"1em"}}>
-                <Button fontWeight="bold" onClick={()=> addProductToCart(product)} fontSize={15} background="" style={{color:"red",padding:"4px 10px"}}>+</Button>
-                <Button fontWeight="bold" onClick={() => removeItemFromCart(id)} fontSize={15} background="" style={{color:"red",padding:"4px 10px"}}>-</Button>
+                <Paragraph fontSize={14}fontWeight="bold">{cost*quantity}$</Paragraph>
+                <div className="flex" style={{flexFlow:"row",justifyContent:"end", marginRight:"1em",columnGap:"5px"}}>
+                <Button fontWeight="bold" onClick={()=> addProductToCart(product)} fontSize={15} background="" style={{color:"red",padding:"4px 10px", transform:"translateY(0px)"}}>+</Button>
+                <Paragraph fontSize={12}>{quantity}</Paragraph>
+                <Button fontWeight="bold" onClick={() => removeItemFromCart(id)} fontSize={15} background="" style={{color:"red",padding:"4px 10px", transform:"translateY(0px)"}}>-</Button>
                 </div>
             </div>
         </div>

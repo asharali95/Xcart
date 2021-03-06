@@ -11,7 +11,7 @@ const Cart = ({ generateOrder, cart }) => {
       <Header fontSize={20} fontWeight="bold" style={{letterSpacing: "5px",color:"white"}}>Cart</Header>
       <CartList/>
       {/* <button onClick={generateOrder}>CHECKOUT</button> */}
-      <Button onClick={generateOrder} fontSize={20} background="rgba(0,0,0,0.6)" style={{letterSpacing: "5px", width:"100%"}}>CHECKOUT</Button>
+      <Button disabled={cart.length >0 ? false : true} onClick={generateOrder} fontSize={20} background="rgba(0,0,0,0.6)" style={{letterSpacing: "5px", width:"100%"}}>CHECKOUT</Button>
     </div>
   );
 };
