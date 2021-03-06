@@ -7,7 +7,7 @@ const Button = ({
   style = {},
   color = "white",
   fontWeight,
-  fontSize,
+  fontSize=12,
   ...restProps
 }) => {
   return (

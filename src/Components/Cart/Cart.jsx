@@ -8,10 +8,10 @@ import Button from './../Button/Button';
 const Cart = ({ generateOrder, cart }) => {
   return (
     <div className="cart">
-      <Header fontSize={24} fontWeight="bold" style={{letterSpacing: "5px",color:"white"}}>Cart</Header>
+      <Header fontSize={20} fontWeight="bold" style={{letterSpacing: "5px",color:"white"}}>Cart</Header>
       <CartList/>
       {/* <button onClick={generateOrder}>CHECKOUT</button> */}
-      <Button fontSize={24} background="rgba(0,0,0,0.6)" style={{letterSpacing: "5px", width:"100%"}}>CHECKOUT</Button>
+      <Button onClick={generateOrder} fontSize={20} background="rgba(0,0,0,0.6)" style={{letterSpacing: "5px", width:"100%"}}>CHECKOUT</Button>
     </div>
   );
 };

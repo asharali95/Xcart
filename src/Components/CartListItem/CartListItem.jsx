@@ -20,11 +20,13 @@ const CartListItem = ({
     <div className="cart-list-item">
         <div className="cartItemImage" style={{background: `url(${coverPhoto})`, backgroundSize: "100% 100%, cover"}}></div>
         <div className="cartItemDescription">
-            <Paragraph fontSize={16} fontWeight="semi-bold">{title}</Paragraph>
+            <Paragraph fontSize={15} fontWeight="semi-bold">{title}</Paragraph>
             <div style={{display:"flex", alignItems:"center"}}>
-                <Paragraph fontSize={15} style={{color:""}} fontWeight="regular">${cost*quantity}</Paragraph><Paragraph fontSize={13} style={{paddingLeft:"10px", color:"grey"}} fontWeight="semi-bold">Quantity:{quantity}</Paragraph>
-                <Button onClick={()=> addProductToCart(product)} fontSize={15} background="" style={{color:"red",padding:"4px 10px"}}>+</Button>
-                <Button onClick={() => removeItemFromCart(id)} fontSize={15} background="" style={{color:"red",padding:"4px 10px"}}>-</Button>
+                <Paragraph fontSize={15}fontWeight="regular">${cost*quantity}</Paragraph>
+                <div className="abc flex" style={{flexFlow:"row",justifyContent:"end", marginRight:"1em"}}>
+                <Button fontWeight="bold" onClick={()=> addProductToCart(product)} fontSize={15} background="" style={{color:"red",padding:"4px 10px"}}>+</Button>
+                <Button fontWeight="bold" onClick={() => removeItemFromCart(id)} fontSize={15} background="" style={{color:"red",padding:"4px 10px"}}>-</Button>
+                </div>
             </div>
         </div>
       {/* <br/>
