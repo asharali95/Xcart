@@ -7,6 +7,7 @@ import "./Checkout.css";
 import Header from "./../../Components/Header/Header";
 import Button from "./../../Components/Button/Button";
 import Paragraph from "../../Components/Paragraph/Paragraph";
+
 const checkout = ({ total }) => {
   return (
     <div className="checkoutPageContainer">
@@ -29,16 +30,14 @@ const checkout = ({ total }) => {
               boxShadow: "0px 5px 5px 2px rgba(180, 179, 179, 0.993)",
             }}
           >
-            {" "}
             Proceed and Pay!
           </Button>
         </div>
-        {/* <OrderForm/> <br/>
-            <button>Proceed and Pay</button> */}
       </div>
     </div>
   );
 };
+
 var mapState = (state) => ({
   total: calculateTotalCost(state.cart),
 });
