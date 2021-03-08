@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 import { uploadProduct } from "../../Redux/product/productActions";
-import Cart from '../../Components/Cart/Cart';
-import Header from '../../Components/Header/Header';
-import Paragraph from './../../Components/Paragraph/Paragraph';
-import Button from './../../Components/Button/Button';
-import ProductCard from './../../Components/ProductCard/ProductCard';
+import Cart from "../../Components/Cart/Cart";
+import Header from "../../Components/Header/Header";
+import Paragraph from "./../../Components/Paragraph/Paragraph";
+import Button from "./../../Components/Button/Button";
+import ProductCard from "./../../Components/ProductCard/ProductCard";
+import { openModal } from "./../../Redux/modal/modalActions";
 
-const Test = ({ uploadProduct }) => {
+const Test = ({ uploadProduct, openModal }) => {
   var [category, setCategory] = useState("");
   var [title, setTitle] = useState("");
   var [cost, setCost] = useState("");
@@ -28,8 +29,8 @@ const Test = ({ uploadProduct }) => {
     uploadProduct(productObj);
   };
   return (
-    <div style={{fontSize:"62.5%"}}>
-        {/* <h1>Test</h1>
+    <div style={{ fontSize: "62.5%" }}>
+      {/* <h1>Test</h1>
       <form onSubmit={handleSubmit}>
         <input
           value={category}
@@ -71,16 +72,17 @@ const Test = ({ uploadProduct }) => {
         <input onChange={(e) => setCoverPhoto(e.target.files[0])} type="file" />
         <button type="submit">submit</button>
       </form> */}
-
-      <Cart/>
       {/* <Paragraph fontSize={32} fontWeight="regular">this is paragraph component</Paragraph>
       <Button fontSize={16} background="orange" fontWeight="regular">click me</Button> */}
+      <Button onClick={() => openModal({ modalType: "testModal" })}>
+        open test modal
+      </Button>
     </div>
   );
 };
 
 var actions = {
   uploadProduct,
+  openModal,
 };
 export default connect(null, actions)(Test);
-

@@ -1,0 +1,11 @@
+.modal-container {
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  background: rgba(0, 0, 0, 0.7);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999999;
+  font-size: 62.5%;
+}
