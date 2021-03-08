@@ -1,9 +1,13 @@
 import React from "react";
 import { connect } from "react-redux";
-import TestModal from './../TestModal/TestModal';
+import TestModal from "./../TestModal/TestModal";
+import AddressFormModal from "./../AddressFormModal/AddressFormModal";
+import LogoutModal from "./../LogoutModal/LogoutModal";
 
 var modalLookUp = {
-  testModal: TestModal
+  testModal: TestModal,
+  addressFormModal: AddressFormModal,
+  logoutModal: LogoutModal,
 };
 
 const ModalManager = ({ modal }) => {

@@ -2,13 +2,14 @@ import React from "react";
 import CheckoutList from "./../../Components/CheckoutList/CheckoutList";
 import { calculateTotalCost } from "./../../Utility/Utility-Products/Utility-checkout";
 import { connect } from "react-redux";
-import OrderForm from "./../../Components/OrderForm/OrderForm";
+// import OrderForm from "./../../Components/OrderForm/OrderForm";
 import "./Checkout.css";
 import Header from "./../../Components/Header/Header";
 import Button from "./../../Components/Button/Button";
 import Paragraph from "../../Components/Paragraph/Paragraph";
+import { openModal } from "./../../Redux/modal/modalActions";
 
-const checkout = ({ total }) => {
+const checkout = ({ total, openModal }) => {
   return (
     <div className="checkoutPageContainer">
       <div className="checkout">
@@ -21,6 +22,7 @@ const checkout = ({ total }) => {
             Total: {total}$
           </Paragraph>
           <Button
+            onClick={() => openModal({ modalType: "addressFormModal" })}
             background="white"
             color="black"
             fontSize={20}
@@ -30,16 +32,18 @@ const checkout = ({ total }) => {
               boxShadow: "0px 5px 5px 2px rgba(180, 179, 179, 0.993)",
             }}
           >
-            Proceed and Pay!
+            Proceed!
           </Button>
         </div>
       </div>
     </div>
   );
 };
-
+var actions = {
+  openModal,
+};
 var mapState = (state) => ({
   total: calculateTotalCost(state.cart),
 });
 
-export default connect(mapState)(checkout);
+export default connect(mapState, actions)(checkout);

@@ -3,8 +3,9 @@ import "./Navbar.css";
 import Header from "./../Header/Header";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import { signOut } from './../../Redux/auth/authAction/authAction';
+
 import Cart from './../Cart/Cart';
+import { openModal } from './../../Redux/modal/modalActions';
 
 const MenuItem = ({ children, to = "#", ...restProps }) => (
   <div>
@@ -22,7 +23,7 @@ const MenuItem = ({ children, to = "#", ...restProps }) => (
   </div>
 );
 
-const Navbar = ({ auth, signOut }) => {
+const Navbar = ({ auth, openModal }) => {
   var [isNavbarVisible, setNavbarVisibility] = useState(false);
   return (
     <div className="navbar">
@@ -40,7 +41,7 @@ const Navbar = ({ auth, signOut }) => {
         {isNavbarVisible? <Cart/>: null}
       </div>
       <MenuItem to={"/test"}>Test</MenuItem>
-      {auth ? <MenuItem to="/authentication" onClick={signOut}>Logout</MenuItem>:
+      {auth ? <MenuItem onClick={() => openModal({ modalType: "logoutModal" })}>Logout</MenuItem>:
       <MenuItem to="/authentication">Login</MenuItem>}
     </div>
   );
@@ -49,6 +50,6 @@ var mapState = (state) => ({
   auth: state.auth,
 });
 var actions ={
-  signOut
+  openModal,
 }
 export default connect(mapState,actions)(Navbar);
