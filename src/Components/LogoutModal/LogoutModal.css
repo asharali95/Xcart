@@ -4,4 +4,11 @@
     background: white;
     color: black;
     border-radius: 10px;
+    row-gap: 2em;
+    
+}
+.btns{
+    display: grid;
+    grid-template-columns: repeat(2,min-content);
+    column-gap: 2em;
 }
