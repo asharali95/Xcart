@@ -77,8 +77,8 @@ const Test = ({ uploadProduct, openModal }) => {
       <Button onClick={() => openModal({ modalType: "testModal" })}>
         open test modal
       </Button>
-      <Button>
-        open address modal
+      <Button onClick={() => openModal({modalType: "errorModal",modalProps:{error: "Error"}})}>
+        Error modal
       </Button>
     </div>
   );

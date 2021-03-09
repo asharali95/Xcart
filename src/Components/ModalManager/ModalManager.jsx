@@ -3,11 +3,13 @@ import { connect } from "react-redux";
 import TestModal from "./../TestModal/TestModal";
 import AddressFormModal from "./../AddressFormModal/AddressFormModal";
 import LogoutModal from "./../LogoutModal/LogoutModal";
+import ErrorModal from "./../ErrorModal/ErrorModal";
 
 var modalLookUp = {
   testModal: TestModal,
   addressFormModal: AddressFormModal,
   logoutModal: LogoutModal,
+  errorModal: ErrorModal,
 };
 
 const ModalManager = ({ modal }) => {
