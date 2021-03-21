@@ -1,0 +1,46 @@
+[debug] [2021-03-21T17:14:01.477Z] ----------------------------------------------------------------------
+[debug] [2021-03-21T17:14:01.480Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\HP-PC\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js emulators:start
+[debug] [2021-03-21T17:14:01.481Z] CLI Version:   9.6.1
+[debug] [2021-03-21T17:14:01.481Z] Platform:      win32
+[debug] [2021-03-21T17:14:01.481Z] Node Version:  v14.16.0
+[debug] [2021-03-21T17:14:01.483Z] Time:          Sun Mar 21 2021 22:14:01 GMT+0500 (Pakistan Standard Time)
+[debug] [2021-03-21T17:14:01.484Z] ----------------------------------------------------------------------
+[debug] [2021-03-21T17:14:01.484Z] 
+[debug] [2021-03-21T17:14:01.498Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2021-03-21T17:14:01.501Z] > authorizing via signed-in user
+[info] i  emulators: Starting emulators: auth, functions, firestore {"metadata":{"emulator":{"name":"hub"},"message":"Starting emulators: auth, functions, firestore"}}
+[debug] [2021-03-21T17:14:01.598Z] [hub] writing locator at C:\Users\HP-PC\AppData\Local\Temp\hub-xcart-react-js.json
+[warn] !  functions: The following emulators are not running, calls to these services from the Functions emulator will affect production: database, hosting, pubsub {"metadata":{"emulator":{"name":"functions"},"message":"The following emulators are not running, calls to these services from the Functions emulator will affect production: \u001b[1mdatabase, hosting, pubsub\u001b[22m"}}
+[info] +  functions: Using node@14 from host. {"metadata":{"emulator":{"name":"functions"},"message":"Using node@14 from host."}}
+[debug] [2021-03-21T17:14:01.667Z] defaultcredentials: writing to file C:\Users\HP-PC\AppData\Roaming\firebase\ashar_alia1999_gmail.com_application_default_credentials.json
+[debug] [2021-03-21T17:14:01.694Z] Setting GAC to C:\Users\HP-PC\AppData\Roaming\firebase\ashar_alia1999_gmail.com_application_default_credentials.json {"metadata":{"emulator":{"name":"functions"},"message":"Setting GAC to C:\\Users\\HP-PC\\AppData\\Roaming\\firebase\\ashar_alia1999_gmail.com_application_default_credentials.json"}}
+[debug] [2021-03-21T17:14:01.700Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/xcart-react-js/adminSdkConfig [none]
+[debug] [2021-03-21T17:14:02.246Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/xcart-react-js/adminSdkConfig 200
+[debug] [2021-03-21T17:14:02.246Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/xcart-react-js/adminSdkConfig {"projectId":"xcart-react-js","storageBucket":"xcart-react-js.appspot.com","locationId":"us-central"}
+[warn] !  firestore: Did not find a Cloud Firestore rules file specified in a firebase.json config file. {"metadata":{"emulator":{"name":"firestore"},"message":"Did not find a Cloud Firestore rules file specified in a firebase.json config file."}}
+[warn] !  firestore: The emulator will default to allowing all reads and writes. Learn more about this option: https://firebase.google.com/docs/emulator-suite/install_and_configure#security_rules_configuration. {"metadata":{"emulator":{"name":"firestore"},"message":"The emulator will default to allowing all reads and writes. Learn more about this option: https://firebase.google.com/docs/emulator-suite/install_and_configure#security_rules_configuration."}}
+[debug] [2021-03-21T17:14:02.271Z] Ignoring unsupported arg: projectId {"metadata":{"emulator":{"name":"firestore"},"message":"Ignoring unsupported arg: projectId"}}
+[debug] [2021-03-21T17:14:02.271Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"firestore"},"message":"Ignoring unsupported arg: auto_download"}}
+[debug] [2021-03-21T17:14:02.272Z] Starting Firestore Emulator with command {"binary":"java","args":["-Dgoogle.cloud_firestore.debug_log_level=FINE","-Duser.language=en","-jar","C:\\Users\\HP-PC\\.cache\\firebase\\emulators\\cloud-firestore-emulator-v1.11.12.jar","--host","localhost","--port",8080,"--functions_emulator","localhost:5001"],"optionalArgs":["port","webchannel_port","host","rules","functions_emulator","seed_from_export"],"joinArgs":false} {"metadata":{"emulator":{"name":"firestore"},"message":"Starting Firestore Emulator with command {\"binary\":\"java\",\"args\":[\"-Dgoogle.cloud_firestore.debug_log_level=FINE\",\"-Duser.language=en\",\"-jar\",\"C:\\\\Users\\\\HP-PC\\\\.cache\\\\firebase\\\\emulators\\\\cloud-firestore-emulator-v1.11.12.jar\",\"--host\",\"localhost\",\"--port\",8080,\"--functions_emulator\",\"localhost:5001\"],\"optionalArgs\":[\"port\",\"webchannel_port\",\"host\",\"rules\",\"functions_emulator\",\"seed_from_export\"],\"joinArgs\":false}"}}
+[info] i  firestore: Firestore Emulator logging to firestore-debug.log {"metadata":{"emulator":{"name":"firestore"},"message":"Firestore Emulator logging to \u001b[1mfirestore-debug.log\u001b[22m"}}
+[debug] [2021-03-21T17:14:04.456Z] API endpoint: http://localhost: {"metadata":{"emulator":{"name":"firestore"},"message":"API endpoint: http://localhost:"}}
+[debug] [2021-03-21T17:14:04.456Z] 8080
+If you are using a library that supports the FIRESTORE_EMULATOR_HOST environment variable, run:
+
+   export FIRESTORE_EMULATOR_HOST=localhost:8080
+
+Dev App Server is now running.
+
+ {"metadata":{"emulator":{"name":"firestore"},"message":"8080\nIf you are using a library that supports the FIRESTORE_EMULATOR_HOST environment variable, run:\r\n\n   export FIRESTORE_EMULATOR_HOST=localhost:8080\n\nDev App Server is now running.\n\r\n"}}
+[debug] [2021-03-21T17:14:09.152Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"ui"},"message":"Ignoring unsupported arg: auto_download"}}
+[debug] [2021-03-21T17:14:09.152Z] Ignoring unsupported arg: port {"metadata":{"emulator":{"name":"ui"},"message":"Ignoring unsupported arg: port"}}
+[debug] [2021-03-21T17:14:09.152Z] Starting Emulator UI with command {"binary":"node","args":["C:\\Users\\HP-PC\\.cache\\firebase\\emulators\\ui-v1.4.2\\server.bundle.js"],"optionalArgs":[],"joinArgs":false} {"metadata":{"emulator":{"name":"ui"},"message":"Starting Emulator UI with command {\"binary\":\"node\",\"args\":[\"C:\\\\Users\\\\HP-PC\\\\.cache\\\\firebase\\\\emulators\\\\ui-v1.4.2\\\\server.bundle.js\"],\"optionalArgs\":[],\"joinArgs\":false}"}}
+[info] i  ui: Emulator UI logging to ui-debug.log {"metadata":{"emulator":{"name":"ui"},"message":"Emulator UI logging to \u001b[1mui-debug.log\u001b[22m"}}
+[debug] [2021-03-21T17:14:09.289Z] Web / API server started at http://localhost:4000
+ {"metadata":{"emulator":{"name":"ui"},"message":"Web / API server started at http://localhost:4000\n"}}
+[info] i  functions: Watching "E:\ASHAR\WEBICAMP\MODULE 3\Project\xcart\functions" for Cloud Functions... {"metadata":{"emulator":{"name":"functions"},"message":"Watching \"E:\\ASHAR\\WEBICAMP\\MODULE 3\\Project\\xcart\\functions\" for Cloud Functions..."}}
+[debug] [2021-03-21T17:14:09.471Z] [worker-pool] addWorker(~diagnostic~) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] addWorker(~diagnostic~)"}}
+[debug] [2021-03-21T17:14:09.472Z] [worker-pool] Adding worker with key ~diagnostic~, total=1 {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] Adding worker with key ~diagnostic~, total=1"}}
+[debug] [2021-03-21T17:14:09.473Z] [worker-pool] submitWork(triggerId=) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitWork(triggerId=)"}}
+[debug] [2021-03-21T17:14:09.475Z] [worker-~diagnostic~-c9d38eaa-a9b5-441e-898c-c6f00f42c3a5]: Assigning socketPath: \\?\pipe\E:\ASHAR\WEBICAMP\MODULE 3\Project\xcart\functions\2588 {"metadata":{"emulator":{"name":"functions"},"message":"[worker-~diagnostic~-c9d38eaa-a9b5-441e-898c-c6f00f42c3a5]: Assigning socketPath: \\\\?\\pipe\\E:\\ASHAR\\WEBICAMP\\MODULE 3\\Project\\xcart\\functions\\2588"}}
+[debug] [2021-03-21T17:14:09.477Z] [worker-~diagnostic~-c9d38eaa-a9b5-441e-898c-c6f00f42c3a5]: BUSY {"metadata":{"emulator":{"name":"functions"},"message":"[worker-~diagnostic~-c9d38eaa-a9b5-441e-898c-c6f00f42c3a5]: BUSY"}}
