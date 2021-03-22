@@ -5,9 +5,9 @@ import TextField from "@material-ui/core/TextField";
 import Button from "./../Button/Button";
 import Header from "./../Header/Header";
 import { connect } from "react-redux";
-import {updateOrderInfo} from "../../Redux/order/orderActions"
+import {processOrder} from "../../Redux/order/orderActions"
 
-const AddressFormModal = ({updateOrderInfo,orderId}) => {
+const AddressFormModal = ({processOrder,orderId}) => {
 
   var [address, setAddress] = useState("");
   var [name, setName] = useState("");
@@ -22,7 +22,7 @@ const AddressFormModal = ({updateOrderInfo,orderId}) => {
       contact
     }
     
-    updateOrderInfo({orderId,addressInfo});
+    processOrder({orderId,addressInfo});
   }
   return (
     <ModalContainer>
@@ -71,6 +71,6 @@ const AddressFormModal = ({updateOrderInfo,orderId}) => {
   );
 };
 var actions ={
-  updateOrderInfo
+  processOrder
 }
 export default connect(null,actions)(AddressFormModal);

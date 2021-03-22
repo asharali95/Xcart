@@ -71,7 +71,8 @@ var shapeCartItems = (cart) =>{
 }
 exports.generateCheckoutSession = functions.https.onRequest(async(req, res) =>{
     try {
-        var {orderId} = req.body;
+        var body = JSON.parse(req.body);
+        var {orderId} = body
         //fetch order
         var query = await firestore.collection("orders").doc(orderId).get();
         var order = query.data();
@@ -86,15 +87,14 @@ exports.generateCheckoutSession = functions.https.onRequest(async(req, res) =>{
             success_url: `https://facebook.com`,
             cancel_url: `https://facebook.com`,
           });
-
         //send session to front end
-        res.status(200).json({
+        res.set({'Access-Control-Allow-Origin':'*'}).status(200).json({
             data:{
                 session
             } 
-        })
+        }) 
     } catch (error) {
-        res.status(401).json({
+        res.set({'Access-Control-Allow-Origin':'*'}).status(401).json({
            error
         })   
     }
