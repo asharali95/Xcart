@@ -9,7 +9,7 @@ import Button from "./../../Components/Button/Button";
 import Paragraph from "../../Components/Paragraph/Paragraph";
 import { openModal } from "./../../Redux/modal/modalActions";
 
-const checkout = ({ total, openModal }) => {
+const checkout = ({ total, openModal ,match:{params:{orderId}}}) => {
   return (
     <div className="checkoutPageContainer">
       <div className="checkout">
@@ -22,7 +22,7 @@ const checkout = ({ total, openModal }) => {
             Total: {total}$
           </Paragraph>
           <Button
-            onClick={() => openModal({ modalType: "addressFormModal" })}
+            onClick={() => openModal({ modalType: "addressFormModal", modalProps:{orderId}})}
             background="white"
             color="black"
             fontSize={20}

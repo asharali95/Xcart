@@ -4,15 +4,29 @@ import ModalContainer from "./../ModalContainer/ModalContainer";
 import TextField from "@material-ui/core/TextField";
 import Button from "./../Button/Button";
 import Header from "./../Header/Header";
+import { connect } from "react-redux";
+import {updateOrderInfo} from "../../Redux/order/orderActions"
 
-const AddressFormModal = () => {
+const AddressFormModal = ({updateOrderInfo,orderId}) => {
+
   var [address, setAddress] = useState("");
   var [name, setName] = useState("");
   var [contact, setContact] = useState("");
   var [email, setEmail] = useState("");
+  var handleSubmit = (e) =>{
+    e.preventDefault();
+    var addressInfo = {
+      name,
+      email,
+      address,
+      contact
+    }
+    
+    updateOrderInfo({orderId,addressInfo});
+  }
   return (
     <ModalContainer>
-      <form className="address-form-modal flex">
+      <form onSubmit={handleSubmit} className="address-form-modal flex">
         <Header fontSize={18} style={{ alignSelf: "start" }}>
           ADDRESS FORM
         </Header>
@@ -56,5 +70,7 @@ const AddressFormModal = () => {
     </ModalContainer>
   );
 };
-
-export default AddressFormModal;
+var actions ={
+  updateOrderInfo
+}
+export default connect(null,actions)(AddressFormModal);
