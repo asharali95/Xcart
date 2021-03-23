@@ -86,6 +86,9 @@ exports.generateCheckoutSession = functions.https.onRequest(async(req, res) =>{
             mode: 'payment',
             success_url: `https://facebook.com`,
             cancel_url: `https://facebook.com`,
+            metadata:{
+                orderId
+            }
           });
         //send session to front end
         res.set({'Access-Control-Allow-Origin':'*'}).status(200).json({
@@ -119,6 +122,33 @@ exports.generateCheckoutSession = functions.https.onRequest(async(req, res) =>{
 
 //         if(event.type === "checkout.session.completed"){
 //             console.log("got payment");
+//             //fetch orderId from session
+//             var sessionData = event.data.object;
+//             var orderId = sessionData.metadata.orderId;
+//             var query = await firestore.collection("orders").doc(orderId).get()
+//             var {cart} = query.data();
+
+//             //update Inventory(products)
+//             //Simple technique
+//             for(var {quantity: quantityBought,id: productId} of cart){
+//                 await firestore.collection("products").doc(productId).update({
+//                     quantity: admin.firestore.FieldValue.increment(-quantityBought)
+//                 })
+//             }
+//             //Can be achieve same thing with parallelism
+
+//             // var promiseArr = cart.map(({quantity: quantityBought,id: productId}) =>{
+//             //     await firestore.collection("products").doc(productId).update({
+//             //         quantity: admin.firestore.FieldValue.increment(-quantityBought)
+//             //     })
+//             // })
+//             // await Promise.all(promiseArr);
+
+
+//             // update order status completed
+//             await firestore.collection("orders").doc(orderId).update({
+//                 orderStatus: "completed"
+//             })
 //         }
 //         else{
 //             console.log("payment rejected");
