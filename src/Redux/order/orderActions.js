@@ -30,11 +30,11 @@ export var processOrder = ({ orderId, addressInfo }) => async (
     //update order info
     var { cart } = getState();
         //TODO: REMOVE HARD CODED ORDER ID
-    var orderId = "Y3ATniKEztvrOvZayNZD"
     await firestore
       .collection("orders")
       .doc(orderId)
       .update({ addressInfo, cart });
+    orderId = "8SMkDO5bYaFKCBhr8XZT"
     //call stripe session API
     // var data = await axios.get(
     //   "http://localhost:5001/xcart-react-js/us-central1/generateCheckoutSession",{orderID});
@@ -53,3 +53,4 @@ export var processOrder = ({ orderId, addressInfo }) => async (
     console.log(error);
   }
 };
+

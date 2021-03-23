@@ -99,3 +99,34 @@ exports.generateCheckoutSession = functions.https.onRequest(async(req, res) =>{
         })   
     }
 })
+
+
+// STRIPE HOOK CLOUD FUNCTION API WHICH ONLY BE TRIGGERED BY
+//STRIPE ITSELF THAT'S WHY IT NEEDS TO BE DEPLOYED PUBLICLY
+
+// exports.stripeWebhooks = functions.https.onRequest(async(req,res) =>{
+//     try {
+//         const sig = req.headers['stripe-signature'];
+//         var event;
+//         try{
+//             event = stripe.webhooks.constructEvent(req.rawBody, sig, stripeEndPoint);
+//         }
+//       catch(error){
+//         res.status(401).json({
+//             error: error.message
+//         })
+//         }
+
+//         if(event.type === "checkout.session.completed"){
+//             console.log("got payment");
+//         }
+//         else{
+//             console.log("payment rejected");
+//         }
+//     } catch (error) {
+        
+//         res.status(401).json({
+//             error: error.message
+//         })
+//     }
+// })
